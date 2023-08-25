@@ -49,19 +49,73 @@ function clr(){
     display.value = ""
 }
 function add(){
-    display.value += "+"
+    if (display.value.slice(-1) =="+"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="-"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="*"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="/"){
+        display.value += ""
+    } else {
+        display.value += "+"
+    }
 }
 function sub(){
-    display.value += "-"
+    if (display.value.slice(-1) =="+"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="-"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="*"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="/"){
+        display.value += ""
+    } else {
+        display.value += "-"
+    }
 }
 function mult(){
-    display.value += "*"
+    if (display.value.slice(-1) =="+"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="-"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="*"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="/"){
+        display.value += ""
+    } else {
+        display.value += "*"
+    }
 }
 function dvde(){
-    display.value += "/"
+    if (display.value.slice(-1) =="+"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="-"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="*"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="/"){
+        display.value += ""
+    } else {
+        display.value += "/"
+    }
 }
 function dot(){
-    display.value += "."
+    if (display.value.slice(-1) =="+"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="-"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="*"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="/"){
+        display.value += ""
+    } else if (display.value.slice(-1) =="."){
+        display.value += ""
+    } else if (display.value==""){
+        display.value += "0."
+    } else {
+        display.value += "."
+    }
 }
 function equal(){
     display.value = eval(display.value)
