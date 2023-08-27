@@ -3,16 +3,12 @@ let display = document.getElementById("display");
 function dsplyNum(val){
     if (display.value=="0"){
         display.value = val
-    } else if (display.value.slice(-2) =="+0"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-2) =="-0"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-2) =="*0"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-2) =="/0"){
+    } else if (
+        (display.value.slice(-2) =="+0")||
+        (display.value.slice(-2) =="-0")||
+        (display.value.slice(-2) =="*0")||
+        (display.value.slice(-2) =="/0")
+        ){
         display.value = display.value.toString().slice(0,-1)
         display.value += val
     } else {
@@ -22,21 +18,19 @@ function dsplyNum(val){
 function dsplyZero(val){
     if (display.value=="0"){
         display.value = "0"
-    } else if (display.value.slice(-1) =="+"){
+    } else if (
+        (display.value.slice(-1) =="+")||
+        (display.value.slice(-1) =="-")||
+        (display.value.slice(-1) =="*")||
+        (display.value.slice(-1) =="/")
+        ){
         display.value += "0"
-    } else if (display.value.slice(-1) =="-"){
-        display.value += "0"
-    } else if (display.value.slice(-1) =="*"){
-        display.value += "0"
-    } else if (display.value.slice(-1) =="/"){
-        display.value += "0"
-    } else if (display.value.slice(-2) =="+0"){
-        display.value += ""
-    } else if (display.value.slice(-2) =="-0"){
-        display.value += ""
-    } else if (display.value.slice(-2) =="*0"){
-        display.value += ""
-    } else if (display.value.slice(-2) =="/0"){
+    } else if (
+        (display.value.slice(-2) =="+0")||
+        (display.value.slice(-2) =="-0")||
+        (display.value.slice(-2) =="*0")||
+        (display.value.slice(-2) =="/0")
+        ){
         display.value += ""
     } else {
         display.value += val
@@ -53,46 +47,37 @@ function clr(){
     display.value = "0"
 }
 function dsplyOperation(val){
-    if (display.value.slice(-1) =="+"){
+    if (
+        (display.value.slice(-1) =="+")||
+        (display.value.slice(-1) =="-")||
+        (display.value.slice(-1) =="*")||
+        (display.value.slice(-1) =="/")||
+        (display.value.slice(-1) ==".")
+        ){
         display.value = display.value.toString().slice(0,-1)
         display.value += val
-    } else if (display.value.slice(-1) =="-"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-1) =="*"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-1) =="/"){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val
-    } else if (display.value.slice(-1) =="."){
-        display.value = display.value.toString().slice(0,-1)
-        display.value += val;
-    } else if (display.value.includes("+")){
-        display.value += ""
-    } else if (display.value.includes("*")){
-        display.value += ""
-    } else if (display.value.includes("-")){
-        display.value += ""
-    } else if (display.value.includes("/")){
+    } else if (
+        (display.value.includes("+"))||
+        (display.value.includes("-"))||
+        (display.value.includes("*"))||
+        (display.value.includes("/"))
+        ){
         display.value += ""
     } else {
         display.value += val
     }
 }
 function dot(){
-    if (display.value.slice(-1) =="+"){
-        display.value += "0."
-    } else if (display.value.slice(-1) =="-"){
-        display.value += "0."
-    } else if (display.value.slice(-1) =="*"){
-        display.value += "0."
-    } else if (display.value.slice(-1) =="/"){
+    if (
+        (display.value.slice(-1) =="+")||
+        (display.value.slice(-1) =="-")||
+        (display.value.slice(-1) =="*")||
+        (display.value.slice(-1) =="/")||
+        (display.value=="")
+        ){
         display.value += "0."
     } else if (display.value.slice(-1) =="."){
         display.value += ""
-    } else if (display.value==""){
-        display.value += "0."
     } else {
         display.value += "."
     }
