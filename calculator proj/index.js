@@ -1,33 +1,102 @@
-function one(){
-    document.getElementById("display").value += "1"
+let display = document.getElementById("display");
+
+function dsplyNum(val){
+    if (display.value=="0"){
+        display.value = val
+    } else if (display.value.slice(-2) =="+0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="-0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="*0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="/0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else {
+    display.value += val
+    }
 }
-function two(){
-    document.getElementById("display").value += "2"
+function dsplyZero(val){
+    if (display.value=="0"){
+        display.value = "0"
+    } else if (display.value.slice(-1) =="+"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="-"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="*"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="/"){
+        display.value += "0"
+    } else if (display.value.slice(-2) =="+0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="-0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="*0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="/0"){
+        display.value += ""
+    } else {
+        display.value += val
+    }
 }
-function three(){
-    document.getElementById("display").value += "3"
+function del(){
+    if (display.value.length == 1){
+        display.value = "0"
+    } else {
+    display.value = display.value.toString().slice(0,-1)
+    }
 }
-function four(){
-    document.getElementById("display").value += "4"
+function clr(){
+    display.value = "0"
 }
-function five(){
-    document.getElementById("display").value += "5"
+function dsplyOperation(val){
+    if (display.value.slice(-1) =="+"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-1) =="-"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-1) =="*"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-1) =="/"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-1) =="."){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val;
+    } else if (display.value.includes("+")){
+        display.value += ""
+    } else if (display.value.includes("*")){
+        display.value += ""
+    } else if (display.value.includes("-")){
+        display.value += ""
+    } else if (display.value.includes("/")){
+        display.value += ""
+    } else {
+        display.value += val
+    }
 }
-function six(){
-    document.getElementById("display").value += "6"
+function dot(){
+    if (display.value.slice(-1) =="+"){
+        display.value += "0."
+    } else if (display.value.slice(-1) =="-"){
+        display.value += "0."
+    } else if (display.value.slice(-1) =="*"){
+        display.value += "0."
+    } else if (display.value.slice(-1) =="/"){
+        display.value += "0."
+    } else if (display.value.slice(-1) =="."){
+        display.value += ""
+    } else if (display.value==""){
+        display.value += "0."
+    } else {
+        display.value += "."
+    }
 }
-function seven(){
-    document.getElementById("display").value += "7"
-}
-function eight(){
-    document.getElementById("display").value += "8"
-}
-function nine(){
-    document.getElementById("display").value += "9"
-}
-function zero(){
-    document.getElementById("display").value += "0"
-}
-function dzero(){
-    document.getElementById("display").value += "00"
+function equal(){
+    display.value = eval(display.value)
 }
