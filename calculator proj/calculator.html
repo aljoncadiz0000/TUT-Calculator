@@ -11,36 +11,36 @@
         <div class= "calculator">
             <form>
                 <div class="display">
-                    <input type="text" name="displayed" id="display">
+                    <input type="text" name="displayed" id="display" value="0" disabled >
                 </div>
                 <div>
-                    <input type="button" value="AC" onclick="clr()" class="operator">
-                    <input type="button" value="DE" onclick="del()" class="operator">
-                    <input type="button" value="." onclick="dot()" class="operator">
-                    <input type="button" value="/" onclick="dvde()" class="operator">
+                    <input type="button" value="AC" onclick="clr()" class="operator btn">
+                    <input type="button" value="DE" onclick="del()" class="operator btn">
+                    <input type="button" value="." onclick="dot()" class="operator btn">
+                    <input type="button" value="/" onclick="dsplyOperation('/')" class="operator btn">
                 </div>
                 <div>
-                    <input type="button" value="7" onclick="seven()">
-                    <input type="button" value="8" onclick="eight()">
-                    <input type="button" value="9" onclick="nine()">
-                    <input type="button" value="*" onclick="mult()" class="operator">
+                    <input type="button" value="7" onclick="dsplyNum(7)" class="btn">
+                    <input type="button" value="8" onclick="dsplyNum(8)" class="btn">
+                    <input type="button" value="9" onclick="dsplyNum(9)" class="btn">
+                    <input type="button" value="*" onclick="dsplyOperation('*')" class="operator btn">
                 </div>
                 <div>
-                    <input type="button" value="4" onclick="four()">
-                    <input type="button" value="5" onclick="five()">
-                    <input type="button" value="6" onclick="six()">
-                    <input type="button" value="-" onclick="sub()" class="operator">
+                    <input type="button" value="4" onclick="dsplyNum(4)" class="btn">
+                    <input type="button" value="5" onclick="dsplyNum(5)" class="btn">
+                    <input type="button" value="6" onclick="dsplyNum(6)" class="btn">
+                    <input type="button" value="-" onclick="dsplyOperation('-')" class="operator btn">
                 </div>
                 <div>
-                    <input type="button" value="1" onclick="one()">
-                    <input type="button" value="2" onclick="two()">
-                    <input type="button" value="3" onclick="three()">
-                    <input type="button" value="+" onclick="add()" class="operator">
+                    <input type="button" value="1" onclick="dsplyNum(1)" class="btn">
+                    <input type="button" value="2" onclick="dsplyNum(2)" class="btn">
+                    <input type="button" value="3" onclick="dsplyNum(3)" class="btn">
+                    <input type="button" value="+" onclick="dsplyOperation('+')" class="operator btn">
                 </div>
                 <div>
-                    <input type="button" value="00" onclick="dzero()">
-                    <input type="button" value="0" onclick="zero()">
-                    <input type="button" value="=" class="equal operator" onclick="equal()">
+                    <input type="button" value="00" onclick="dsplyZero('00')" class="btn">
+                    <input type="button" value="0" onclick="dsplyZero('0')" class="btn">
+                    <input type="button" value="=" class="equal operator btn" onclick="equal()">
                 </div>
             </form>
         </div>

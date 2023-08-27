@@ -1,114 +1,94 @@
-let display = document.getElementById("display")
-let operation = document.getElementsByClassName("operation")
+let display = document.getElementById("display");
 
-function one(){
-    display.value += "1"
-}
-function two(){
-    display.value += "2"
-}
-function three(){
-    display.value += "3"
-}
-function four(){
-    display.value += "4"
-}
-function five(){
-    display.value += "5"
-}
-function six(){
-    display.value += "6"
-}
-function seven(){
-    display.value += "7"
-}
-function eight(){
-    display.value += "8"
-}
-function nine(){
-    display.value += "9"
-}
-function zero(){
-    if (display.value==""){
-        display.value = "";
+function dsplyNum(val){
+    if (display.value=="0"){
+        display.value = val
+    } else if (display.value.slice(-2) =="+0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="-0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="*0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-2) =="/0"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
     } else {
-        display.value += "0";
+    display.value += val
     }
 }
-function dzero(){
-    if (display.value==""){
-        display.value = "";
+function dsplyZero(val){
+    if (display.value=="0"){
+        display.value = "0"
+    } else if (display.value.slice(-1) =="+"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="-"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="*"){
+        display.value += "0"
+    } else if (display.value.slice(-1) =="/"){
+        display.value += "0"
+    } else if (display.value.slice(-2) =="+0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="-0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="*0"){
+        display.value += ""
+    } else if (display.value.slice(-2) =="/0"){
+        display.value += ""
     } else {
-        display.value += "00";
+        display.value += val
     }
 }
 function del(){
+    if (display.value.length == 1){
+        display.value = "0"
+    } else {
     display.value = display.value.toString().slice(0,-1)
+    }
 }
 function clr(){
-    display.value = ""
+    display.value = "0"
 }
-function add(){
+function dsplyOperation(val){
     if (display.value.slice(-1) =="+"){
-        display.value += ""
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
     } else if (display.value.slice(-1) =="-"){
-        display.value += ""
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
     } else if (display.value.slice(-1) =="*"){
-        display.value += ""
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
     } else if (display.value.slice(-1) =="/"){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val
+    } else if (display.value.slice(-1) =="."){
+        display.value = display.value.toString().slice(0,-1)
+        display.value += val;
+    } else if (display.value.includes("+")){
+        display.value += ""
+    } else if (display.value.includes("*")){
+        display.value += ""
+    } else if (display.value.includes("-")){
+        display.value += ""
+    } else if (display.value.includes("/")){
         display.value += ""
     } else {
-        display.value += "+"
-    }
-}
-function sub(){
-    if (display.value.slice(-1) =="+"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="-"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="*"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="/"){
-        display.value += ""
-    } else {
-        display.value += "-"
-    }
-}
-function mult(){
-    if (display.value.slice(-1) =="+"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="-"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="*"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="/"){
-        display.value += ""
-    } else {
-        display.value += "*"
-    }
-}
-function dvde(){
-    if (display.value.slice(-1) =="+"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="-"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="*"){
-        display.value += ""
-    } else if (display.value.slice(-1) =="/"){
-        display.value += ""
-    } else {
-        display.value += "/"
+        display.value += val
     }
 }
 function dot(){
     if (display.value.slice(-1) =="+"){
-        display.value += ""
+        display.value += "0."
     } else if (display.value.slice(-1) =="-"){
-        display.value += ""
+        display.value += "0."
     } else if (display.value.slice(-1) =="*"){
-        display.value += ""
+        display.value += "0."
     } else if (display.value.slice(-1) =="/"){
-        display.value += ""
+        display.value += "0."
     } else if (display.value.slice(-1) =="."){
         display.value += ""
     } else if (display.value==""){
