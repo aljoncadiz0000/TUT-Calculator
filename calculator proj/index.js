@@ -66,17 +66,15 @@ function dot(){
     const lastChar = display.value.slice(-1);
     
     if (oprtns.includes(lastChar)){
-        display.value += "0."
-    } else if (
-        display.value.indexOf('.')>=
-        (display.value.indexOf('+')
-        +display.value.indexOf('-')
-        +display.value.indexOf('*')
-        +display.value.indexOf('/')+4) /*+4 is used to balance indexes*/
-        ){
-        return(display.value) 
+        display.value += "0.";
+    } else if (display.value.match(/[\.]\d{1,20}[\+\-\/\*]\d{1,20}[\.]/)){
+        return(display.value); 
+    } else if (display.value.match(/[\.]\d{1,20}[\+\-\/\*]\d{1,20}/)){
+        display.value += ".";
+    } else if (display.value.match(/\./)){
+        return(display.value);
     } else {
-        display.value += "."
+        display.value += ".";
     }
 }
 function equal(){
