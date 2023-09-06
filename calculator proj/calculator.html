@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" >
 </head>
 <body>
@@ -11,7 +12,10 @@
         <div class= "calculator">
             <form>
                 <div class="display">
-                    <input type="text" name="displayed" id="display" value="0" disabled >
+                    <input type="text" name="upperDisplay" id="display1" value="0" disabled >
+                </div>
+                <div class="display">
+                    <input type="text" name="lowerDisplay" id="display2" value="0" disabled >
                 </div>
                 <div>
                     <input type="button" value="AC" onclick="clr()" class="operator btn">

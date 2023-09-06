@@ -1,82 +1,70 @@
-let display = document.getElementById("display");
+let upperDisplay = document.getElementById("display1");
+//let upperDisplay = $("#display1");
+let lowerDisplay = document.getElementById("display2");
+//let lowerDisplay = $("#display2");
 const oprtns = ['+','-','*','/'];
-const zroOprtns = ['+0','-0','*0','/0'];
+const numberSizeRegEx = /^[\d\.\d]{1,8}$/;
 
 function dsplyNum(val){
 
-    const last2Char = display.value.slice(-2);
-
-    if (display.value=="0"){
-        display.value = val;
-    } else if (zroOprtns.includes(last2Char)){
-        display.value = display.value.toString().slice(0,-1);
-        display.value += val;
+    if (lowerDisplay.value=="0"){
+        lowerDisplay.value = val;
+    } else if (!numberSizeRegEx.test(lowerDisplay.value)){
+        return(lowerDisplay.value);
     } else {
-    display.value += val;
+    lowerDisplay.value += val;
     }
-}
+} 
 function dsplyZero(val){
 
-    const lastChar = display.value.slice(-1);
-    const last2Char = display.value.slice(-2);
+    const lastChar = lowerDisplay.value.slice(-1);
+    const last2Char = lowerDisplay.value.slice(-2);
 
-    if (display.value=="0"){
-        display.value = "0";
+    if (lowerDisplay.value=="0"){
+        lowerDisplay.value = "0";
     } else if (oprtns.includes(lastChar)){
-        display.value += "0";
-    } else if (zroOprtns.includes(last2Char)){
-        return(display.value);
+        lowerDisplay.value += "0";
     } else {
-        display.value += val;
+        lowerDisplay.value += val;
     }
 }
 function del(){
-    if (display.value.length == 1){
-        display.value = "0";
+    if (lowerDisplay.value.length == 1){
+        lowerDisplay.value = "0";
     } else {
-        display.value = display.value.toString().slice(0,-1);
+        lowerDisplay.value = lowerDisplay.value.toString().slice(0,-1);
     }
 }
 function clr(){
-    display.value = "0";
+    lowerDisplay.value = "0";
+    upperDisplay.value = "0";
 }
 function dsplyOperation(val){
 
-    const lastChar = display.value.slice(-1);
+    const lastOperation = upperDisplay.value.slice(-1);
 
-    if (oprtns.includes(lastChar)){
-        display.value = display.value.toString().slice(0,-1);
-        display.value += val;
-    } else if (
-        (display.value.includes("+"))||
-        (display.value.includes("-"))||
-        (display.value.includes("*"))||
-        (display.value.includes("/"))
-        ){
-        equal + val;
-    } else if (display.value.slice(-1) =="."){
-        display.value = display.value.toString().slice(0,-1);
-        display.value += val;
+    if (oprtns.includes(lastOperation)){
+        //upperDisplay.value = upperDisplay.value.toString().slice(0,-1);
+        equal();
+        upperDisplay.value += val;//wrong code based on testing evaluating even with just zero in lower value
     } else {
-        display.value += val;
+        equal();
+        upperDisplay.value += val;
     }
 }
 function dot(){
     
-    const lastChar = display.value.slice(-1);
+    const lastChar = lowerDisplay.value.slice(-1);
     
     if (oprtns.includes(lastChar)){
-        display.value += "0.";
-    } else if (display.value.match(/[\.]\d{1,20}[\+\-\/\*]\d{1,20}[\.]/)){
-        return(display.value); 
-    } else if (display.value.match(/[\.]\d{1,20}[\+\-\/\*]\d{1,20}/)){
-        display.value += ".";
-    } else if (display.value.match(/\./)){
-        return(display.value);
+        lowerDisplay.value += "0.";
+    } else if (lowerDisplay.value.includes('.')){
+        return(lowerDisplay.value);
     } else {
-        display.value += ".";
+        lowerDisplay.value += ".";
     }
 }
 function equal(){
-    display.value = eval(display.value);
+    upperDisplay.value = eval((upperDisplay.value)+(lowerDisplay.value));
+    lowerDisplay.value = "0";
 }
